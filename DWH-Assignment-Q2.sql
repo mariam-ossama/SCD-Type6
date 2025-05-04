@@ -1,0 +1,100 @@
+CREATE DATABASE Employee;
+--DROP DATABASE Employee;
+CREATE TABLE EMPLOYEE_Q2
+(
+  ID INT IDENTITY(1001,1) PRIMARY KEY,
+  Name VARCHAR(50),
+  City VARCHAR(20),
+  Email VARCHAR(20),
+  Update_date DATETIME 
+);
+
+INSERT INTO EMPLOYEE_Q2 VALUES('Ahmed','Cairo','ahmed@mail.com','2023-04-20');
+INSERT INTO EMPLOYEE_Q2 VALUES('Alaa','Giza','alaa@mail.com','2023-04-20');
+INSERT INTO EMPLOYEE_Q2 VALUES('Samy','Cairo','samy@mail.com','2023-04-20');
+
+INSERT INTO EMPLOYEE_Q2 VALUES('Galal','Cairo','a.mgala@mail.com','2023-04-21');
+
+INSERT INTO EMPLOYEE_Q2 VALUES('Samy','Cairo','samy@mail.com','2023-05-21');
+
+INSERT INTO EMPLOYEE_Q2 VALUES('Mariam','Cairo','mariam@mail.com','2023-04-21');
+
+UPDATE Employee_Q2
+SET City='Giza'
+WHERE ID=1001;
+
+use Employee
+UPDATE Employee_Q2
+SET City='Cairo'
+WHERE ID=1001;
+
+UPDATE EMPLOYEE_Q2
+SET City='Giza',Email='a.mgalal@mail.com'
+WHERE ID=1001;
+
+UPDATE EMPLOYEE_Q2
+SET City='Alex',Email='a.ahmed@mail.com'
+WHERE ID=1001;
+
+UPDATE EMPLOYEE_Q2
+SET City='Alex',Email='a.ahmed@mail.com'
+WHERE ID=1002;
+
+UPDATE EMPLOYEE_Q2
+SET City='Alex'
+WHERE ID=1001;
+
+UPDATE EMPLOYEE_Q2
+SET city='Giza'
+WHERE ID=1003;
+
+UPDATE EMPLOYEE_Q2
+SET City='Alex'
+WHERE ID=1002;
+
+UPDATE EMPLOYEE_Q2
+SET City='Giza'
+WHERE ID=1006;
+
+UPDATE EMPLOYEE_Q2
+SET City='Giza',Email='s.samy@mail.com'
+WHERE ID=1005;
+
+UPDATE EMPLOYEE_Q2
+SET City='Giza'
+WHERE ID=1004;
+
+SELECT* FROM EMPLOYEE_Q2;
+
+CREATE DATABASE STG_Employee;
+--DROP DATABASE STG_Employee;
+--DROP TABLE STG_Employee_Q2;
+CREATE TABLE STG_EMPLOYEE_Q2
+(
+  STG_EMPLOYEE_KEY INT IDENTITY(1,1), 
+  ID INT ,
+  Name VARCHAR(50),
+  City VARCHAR(20),
+  Email VARCHAR(20),
+  Update_date DATETIME
+)
+
+SELECT* FROM STG_EMPLOYEE_Q2;
+
+CREATE DATABASE DW_Employee;
+
+CREATE TABLE EMPLOYEE_Q2_DIM
+(
+  Employee_Dim_key INT IDENTITY(1,1) PRIMARY KEY,
+  ID INT,
+  NAME VARCHAR(50),
+  Previous_City VARCHAR(20),
+  Current_City VARCHAR(20),
+  Previous_Email VARCHAR(50),
+  Current_Email VARCHAR(50),
+  Valid_From DATETIME,
+  Valid_To DATETIME,
+  Active_Flag INT
+);
+
+SELECT* FROM EMPLOYEE_Q2_DIM;
